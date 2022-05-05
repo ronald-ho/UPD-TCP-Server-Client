@@ -26,13 +26,11 @@ class Authenticate():
         return username in self.users
     
     def authentication(self, username, password):
-        if self.usernameExist(username):
-            return self.users[username] == password
+        return self.users[username] == password
                 
-    def login(self, username, password):
-        if self.authenticate(username, password):
-            with open(ACTIVE_USERS, "a") as active:
-                active.write(f"{username}\n")
+    def login(self, username):
+        with open(ACTIVE_USERS, "a") as active:
+            active.write(f"{username}\n")
 
     def logout(self, username):
         with open(ACTIVE_USERS, "r+") as active:
