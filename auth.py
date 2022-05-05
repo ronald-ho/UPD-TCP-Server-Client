@@ -1,4 +1,4 @@
-ACTIVE_USERS    = "active_users.txt"
+ACTIVE_USERS    = "activeUsers.txt"
 CREDENTIALS     = "credentials.txt"
 
 class Authenticate():
@@ -35,7 +35,6 @@ class Authenticate():
                 active.write(f"{username}\n")
 
     def logout(self, username):
-        # If the user is logged in, remove the user from the active users file  
         with open(ACTIVE_USERS, "r+") as active:
             users = active.readlines()
             for user in users:
